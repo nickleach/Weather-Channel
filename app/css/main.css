@@ -1,0 +1,59 @@
+.container {
+  margin: auto; }
+  @media (min-width: 800px) {
+    .container {
+      width: 1080px; }
+      .container section {
+        margin: 10px;
+        width: 300px;
+        height: 500px;
+        overflow: scroll;
+        display: inline-block; } }
+
+#main {
+  background-color: white;
+  /* Fallback Color */
+  background-image: -webkit-gradient(linear, left top, left bottom, from(blue), to(white));
+  /* Saf4+, Chrome */
+  background-image: -webkit-linear-gradient(top, blue, white);
+  /* Chrome 10+, Saf5.1+, iOS 5+ */
+  background-image: -moz-linear-gradient(top, blue, white);
+  /* FF3.6 */
+  background-image: -ms-linear-gradient(top, blue, white);
+  /* IE10 */
+  background-image: -o-linear-gradient(top, blue, white);
+  /* Opera 11.10+ */
+  background-image: linear-gradient(top, blue, white);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='$fromColor', EndColorStr='$toColor'); }
+
+#sidebar {
+  background-color: black;
+  /* Fallback Color */
+  background-image: -webkit-gradient(linear, left top, left bottom, from(red), to(black));
+  /* Saf4+, Chrome */
+  background-image: -webkit-linear-gradient(top, red, black);
+  /* Chrome 10+, Saf5.1+, iOS 5+ */
+  background-image: -moz-linear-gradient(top, red, black);
+  /* FF3.6 */
+  background-image: -ms-linear-gradient(top, red, black);
+  /* IE10 */
+  background-image: -o-linear-gradient(top, red, black);
+  /* Opera 11.10+ */
+  background-image: linear-gradient(top, red, black);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='$fromColor', EndColorStr='$toColor'); }
+
+#instruction {
+  background-color: blue;
+  /* Fallback Color */
+  background-image: -webkit-gradient(linear, left top, left bottom, from(silver), to(blue));
+  /* Saf4+, Chrome */
+  background-image: -webkit-linear-gradient(top, silver, blue);
+  /* Chrome 10+, Saf5.1+, iOS 5+ */
+  background-image: -moz-linear-gradient(top, silver, blue);
+  /* FF3.6 */
+  background-image: -ms-linear-gradient(top, silver, blue);
+  /* IE10 */
+  background-image: -o-linear-gradient(top, silver, blue);
+  /* Opera 11.10+ */
+  background-image: linear-gradient(top, silver, blue);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='$fromColor', EndColorStr='$toColor'); }
