@@ -4,6 +4,7 @@
     .container {
       width: 1080px; }
       .container section {
+        padding: 10px;
         margin: 10px;
         width: 300px;
         height: 500px;
@@ -45,17 +46,33 @@
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='$fromColor', EndColorStr='$toColor'); }
 
 #instruction {
-  background-color: blue;
+  background-color: silver;
   /* Fallback Color */
-  background-image: -webkit-gradient(linear, left top, left bottom, from(silver), to(blue));
+  background-image: -webkit-gradient(linear, left top, left bottom, from(lightgreen), to(silver));
   /* Saf4+, Chrome */
-  background-image: -webkit-linear-gradient(top, silver, blue);
+  background-image: -webkit-linear-gradient(top, lightgreen, silver);
   /* Chrome 10+, Saf5.1+, iOS 5+ */
-  background-image: -moz-linear-gradient(top, silver, blue);
+  background-image: -moz-linear-gradient(top, lightgreen, silver);
   /* FF3.6 */
-  background-image: -ms-linear-gradient(top, silver, blue);
+  background-image: -ms-linear-gradient(top, lightgreen, silver);
   /* IE10 */
-  background-image: -o-linear-gradient(top, silver, blue);
+  background-image: -o-linear-gradient(top, lightgreen, silver);
   /* Opera 11.10+ */
-  background-image: linear-gradient(top, silver, blue);
+  background-image: linear-gradient(top, lightgreen, silver);
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='$fromColor', EndColorStr='$toColor'); }
+
+change-color {
+  -webkit-transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 1s;
+  -webkit-transition-property: -webkit-transform;
+  -moz-transition-property: -moz-transform;
+  -o-transition-property: -o-transform;
+  transition-property: transform;
+  display: block;
+  text-align: center;
+  font-size: 20px; }
+
+#area {
+  text-align: center; }

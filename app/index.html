@@ -11,10 +11,18 @@
 <div class="container" ng-controller="MainCtrl">
 
 	<h1>Basic Document</h1>
+	<!-- Template for the cache -->
 	<script type="text/ng-template" id="template.html">
-	<button>Click Me</button>
+		<button>Click Me</button>
 	</script>
+
+	<!-- Call the directive -->
 	<change-color></change-color>
+
+
+	<!-- Area to display area calculation -->
+	<h5 id="area"></h5>
+
 
 	<section id="main">
 		<img class="image" src="http://dsx.weather.com/util/image/w/68a62f4e-122e-4c72-91b2-ec9f5024e031.jpg?v=at&w=320&h=180&api=7db9fe61-7414-47b5-9871-e17d87b8b6a0">
@@ -57,41 +65,100 @@
 
   <!-- VENDOR -->
   <script src="js/vendor/jquery.js"></script>
-  <script src="js/vendor/underscore.js"></script>
   <script src="js/vendor/angular.js"></script>
 
-
-	<!-- Manually initialize angular -->
+	<!-- My angular scripts -->
 	<script>
-		var app = angular.module('WeatherChannel', [])
-		.directive('changeColor', function ($templateCache) {
+
+	;( function(){
+
+	  'use strict';
+
+
+
+		var app = angular.module('WeatherChannel', []);
+
+
+		// My factory
+	  app.factory('MyFactory', [function () {
+
+
+	  	// area calculation function
+
+	    var calculateArea = function(){
+
+	      var height = $("change-color").height();
+	      var width = $("change-color").width();
+
+	      var area = height * width;
+	      var areaText = "The area of this directive is " + area + " px &sup2";
+	      $('#area').html(areaText)
+
+
+	    };
+
+	    return {
+
+	      calculateArea : calculateArea
+
+	    };
+
+	  }])
+
+
+
+	  // My directive
+		.directive('changeColor', [ '$templateCache', 'MyFactory', function ($templateCache, MyFactory) {
 			return {
 				restrict: 'E',
 				transclude: true,
 				template: $templateCache.get('template.html'),
 				link: function (scope, elem, iAttrs) {
 					elem.bind('click', function(e){
+						// rotate the button
+						if ($( this ).css( "transform" ) == 'none'){
+				        $(this).css("transform","rotate(360deg)");
+				    } else {
+				        $(this).css("transform","");
+				    }
+						// calculate the area
+						MyFactory.calculateArea();
 
+						// make a random background color
 						var hex = Math.floor(Math.random() * 0xFFFFFF);
   					return $('body').css('background-color', "#" + ("000000" + hex.toString(16)).substr(-6));
 
 					})
 				}
 			};
-		})
+		}])
+
+
+
     .controller('MainCtrl', ['$scope', function ($scope) {
 
+    	  // Sub out image for retina display
+
+		  var retina = "http://dsx.weather.com/util/image/w/68a62f4e-122e-4c72-91b2-ec9f5024e031.jpg?api=7db9fe61-7414-47b5-9871-e17d87b8b6a0&h=598&w=640&v=at";
+
+		  if(window.devicePixelRatio > 1){
+
+		    $('.image').attr({
+		      src: retina
+		    });
+
+		  }
 
 
+		}]);
 
 
-
-    }]);
 		angular.bootstrap(document, ['WeatherChannel']);
+
+		}());
 	</script>
 
-  <!-- MAIN -->
-  <script src="js/main.js"></script>
+
 
 </body>
 </html>

@@ -1,8 +1,11 @@
+// Import breakpoint
 @import "_breakpoint";
 
+// set device widths
 $handheld: 500px;
 $desktop: 800px;
 
+// gradient mixin
 @mixin linear-gradient($fromColor, $toColor) {
   background-color: $toColor; /* Fallback Color */
   background-image: -webkit-gradient(linear, left top, left bottom, from($fromColor), to($toColor)); /* Saf4+, Chrome */
@@ -26,6 +29,7 @@ section{
       img{
         width: 300px;
       }
+      padding: 10px;
       margin: 10px;
       width: 300px;
       height: 500px;
@@ -36,6 +40,8 @@ section{
 
 }
 
+
+// Sections
 #main{
   @include linear-gradient(blue, white);
 }
@@ -43,5 +49,24 @@ section{
   @include linear-gradient(red, black);
 }
 #instruction{
-  @include linear-gradient(silver, blue);
+  @include linear-gradient(lightgreen, silver);
+}
+
+// change color button
+change-color{
+  -webkit-transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 1s;
+  -webkit-transition-property: -webkit-transform;
+  -moz-transition-property: -moz-transform;
+  -o-transition-property: -o-transform;
+  transition-property: transform;
+  display: block;
+  text-align: center;
+  font-size: 20px;
+}
+// area calculation
+#area{
+  text-align: center;
 }
