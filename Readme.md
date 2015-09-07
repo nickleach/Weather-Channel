@@ -1,7 +1,8 @@
-## Welcome to My Angular Project
+## Weather Channel Code Assessment
 
-> I am your Readme.md file, you should probably update me.
+> Code Assessment completed for The Weather Channel.
 
+[See the completed project!](http://development.nickleach-weatherchannel.divshot.io)
 
 ## Usage
 
