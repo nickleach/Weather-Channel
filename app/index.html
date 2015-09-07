@@ -11,6 +11,10 @@
 <div class="container" ng-controller="MainCtrl">
 
 	<h1>Basic Document</h1>
+	<script type="text/ng-template" id="template.html">
+	<button>Click Me</button>
+	</script>
+	<change-color></change-color>
 
 	<section id="main">
 		<img class="image" src="http://dsx.weather.com/util/image/w/68a62f4e-122e-4c72-91b2-ec9f5024e031.jpg?v=at&w=320&h=180&api=7db9fe61-7414-47b5-9871-e17d87b8b6a0">
@@ -56,8 +60,25 @@
   <script src="js/vendor/underscore.js"></script>
   <script src="js/vendor/angular.js"></script>
 
+
+	<!-- Manually initialize angular -->
 	<script>
 		var app = angular.module('WeatherChannel', [])
+		.directive('changeColor', function ($templateCache) {
+			return {
+				restrict: 'E',
+				transclude: true,
+				template: $templateCache.get('template.html'),
+				link: function (scope, elem, iAttrs) {
+					elem.bind('click', function(e){
+
+						var hex = Math.floor(Math.random() * 0xFFFFFF);
+  					return $('body').css('background-color', "#" + ("000000" + hex.toString(16)).substr(-6));
+
+					})
+				}
+			};
+		})
     .controller('MainCtrl', ['$scope', function ($scope) {
 
 
